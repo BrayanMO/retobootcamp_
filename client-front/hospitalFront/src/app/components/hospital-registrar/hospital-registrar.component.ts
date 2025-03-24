@@ -36,14 +36,10 @@ export class HospitalRegistrarComponent implements OnInit {
   onSubmit(): void {
     if (this.hospitalForm.valid) {
       const hospitalData = this.hospitalForm.value;
-      // Si es necesario, convierte la fecha a java.sql.Date o al formato adecuado:
-      // hospitalData.fechaRegistro = new Date(hospitalData.fechaRegistro);
       this.hospitalService.registrarHospital(hospitalData).subscribe(
         (res) => {
           this.message = 'Hospital registrado correctamente.';
-          // Se puede redirigir o limpiar el formulario
           this.hospitalForm.reset();
-          // this.router.navigate(['/ruta-deseada']);
         },
         (err) => {
           console.error('Error al registrar hospital', err);

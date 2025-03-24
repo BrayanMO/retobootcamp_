@@ -119,7 +119,6 @@ public class HospitalController {
     public ResponseEntity<?> listarGerentes() {
         try {
             List<Gerente> gerentes = gerenteService.obtenerTodoslosGerentes();
-            System.out.println("Datos de los gerentes: " + gerentes); // Depuración
             return ResponseEntity.ok(gerentes); // Devuelve la lista en JSON
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

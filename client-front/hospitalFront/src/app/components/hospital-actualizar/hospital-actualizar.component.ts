@@ -66,7 +66,7 @@ export class HospitalActualizarComponent implements OnInit {
       return;
     }
 
-    const hospitalActualizado = this.hospitalForm.getRawValue(); // Extrae los datos del formulario
+    const hospitalActualizado = this.hospitalForm.getRawValue(); 
     this.hospitalService.actualizarHospital(hospitalActualizado).subscribe(
       () => {
         this.mensaje = 'Hospital actualizado correctamente.';

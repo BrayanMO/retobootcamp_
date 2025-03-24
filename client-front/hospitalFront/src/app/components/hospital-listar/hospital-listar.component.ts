@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 export class HospitalListarComponent implements OnInit {
   hospitales: Hospital[] = [];
   hospitalesFiltrados: Hospital[] = [];
-  criterioBusqueda: string = ''; // Criterio de búsqueda
-  mensaje: string = ''; // Mensaje para resultados
+  criterioBusqueda: string = ''; 
+  mensaje: string = '';
 
   constructor(private hospitalService: HospitalService, private router: Router) {}
 
@@ -21,10 +21,10 @@ export class HospitalListarComponent implements OnInit {
   }
 
   irAActualizar(id: number): void {
-    this.router.navigate([`/hospitales/actualizar/${id}`]); // Redirigir al formulario
+    this.router.navigate([`/hospitales/actualizar/${id}`]);
   }
 
-  // Obtener la lista de hospitales desde el servicio
+
   obtenerHospitales(): void {
     this.hospitalService.listarHospitales().subscribe(
       (data: any[]) => {
@@ -40,7 +40,7 @@ export class HospitalListarComponent implements OnInit {
           idCondicion: item[7],
           fechaRegistro: item[8]
         }));
-        this.hospitalesFiltrados = [...this.hospitales]; // Copia inicial
+        this.hospitalesFiltrados = [...this.hospitales];
       },
       (error) => {
         console.error('Error al obtener hospitales', error);
@@ -49,17 +49,17 @@ export class HospitalListarComponent implements OnInit {
     );
   }
 
-  // Filtrar la lista de hospitales según el criterio de búsqueda
+
   filtrarHospitales(): void {
-    const criterio = this.criterioBusqueda.trim().toLowerCase(); // Convertir a minúsculas y eliminar espacios en blanco
+    const criterio = this.criterioBusqueda.trim().toLowerCase();
     this.hospitalesFiltrados = this.hospitales.filter(hospital =>
-      hospital.nombre?.toLowerCase().includes(criterio) || // Filtrar por nombre
-      hospital.area?.toString().includes(criterio) || // Filtrar por área
-      hospital.antiguedad?.toString().includes(criterio) || // Filtrar por antigüedad
-      hospital.idDistrito?.toString().includes(criterio) || // Filtrar por distrito
-      hospital.idSede?.toString().includes(criterio) || // Filtrar por sede
-      hospital.idGerente?.toString().includes(criterio) || // Filtrar por gerente
-      hospital.idCondicion?.toString().includes(criterio) // Filtrar por condición
+      hospital.nombre?.toLowerCase().includes(criterio) ||
+      hospital.area?.toString().includes(criterio) ||
+      hospital.antiguedad?.toString().includes(criterio) ||
+      hospital.idDistrito?.toString().includes(criterio) ||
+      hospital.idSede?.toString().includes(criterio) ||
+      hospital.idGerente?.toString().includes(criterio) ||
+      hospital.idCondicion?.toString().includes(criterio)
     );
   }
 

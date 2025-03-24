@@ -7,7 +7,7 @@ export class Hospital {
   idSede?: number;
   idGerente?: number;
   idCondicion?: number;
-  fechaRegistro?: Date; // O Date si manejas fechas en formato Date
+  fechaRegistro?: Date; 
 
   constructor(idHospital: number) {
     this.idHospital = idHospital;
