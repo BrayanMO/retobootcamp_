@@ -1,0 +1,32 @@
+<nav class="bg-blue-600 p-4 shadow-md">
+  <div class="container mx-auto flex justify-between items-center">
+    <!-- Logo o nombre de la app -->
+    <div>
+      <a routerLink="/hospitales/" class="text-white text-xl font-bold hover:underline">
+        Inicio
+      </a>
+    </div>
+    <!-- Opciones de navegación -->
+    <div>
+      <ul class="flex space-x-6 cursor-pointer">
+        <li>
+          <a routerLink="/hospitales/listar" class="text-white hover:text-gray-700">Lista de Hospitales</a>
+        </li>
+        <li>
+          <a routerLink="/hospitales/registrar" class="text-white hover:text-gray-700">Registrar Hospital</a>
+        </li>
+        <li>
+          <a routerLink="/hospitales/listar-condiciones" class="text-white hover:text-gray-700">Listar Condiciones</a>
+        </li>
+        <li>
+          <a routerLink="/hospitales/listar-gerentes" class="text-white hover:text-gray-700">Listar Gerentes</a>
+        </li>
+        <li>
+          <a routerLink="/hospitales/listar-distritos" class="text-white hover:text-gray-700">Listar Distritos</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

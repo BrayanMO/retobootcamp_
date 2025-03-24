@@ -1,0 +1,50 @@
+<div class="max-w-lg mx-auto mt-8 p-6 bg-white border border-gray-200 rounded-lg shadow-md">
+  <h2 class="text-xl font-bold mb-4">Actualizar Hospital</h2>
+  <form [formGroup]="hospitalForm" (ngSubmit)="actualizarHospital()">
+    <div class="mb-4">
+      <label for="idHospital" class="block font-medium">ID Hospital</label>
+      <input type="text" id="idHospital" formControlName="idHospital" readonly class="border px-4 py-2 w-full rounded">
+    </div>
+
+    <div class="mb-4">
+      <label for="nombre" class="block font-medium">Nombre</label>
+      <input type="text" id="nombre" formControlName="nombre" class="border px-4 py-2 w-full rounded">
+    </div>
+
+    <div class="mb-4">
+      <label for="antiguedad" class="block font-medium">Antigüedad</label>
+      <input type="number" id="antiguedad" formControlName="antiguedad" class="border px-4 py-2 w-full rounded">
+    </div>
+
+    <div class="mb-4">
+      <label for="area" class="block font-medium">Área</label>
+      <input type="number" id="area" formControlName="area" class="border px-4 py-2 w-full rounded">
+    </div>
+
+    <div class="mb-4">
+      <label for="idDistrito" class="block font-medium">Distrito</label>
+      <select id="idDistrito" formControlName="idDistrito" class="border px-4 py-2 w-full rounded">
+        <option *ngFor="let distrito of distritos" [value]="distrito.id">
+          {{ distrito.nombre }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label for="idSede" class="block font-medium">Sede</label>
+      <select id="idSede" formControlName="idSede" class="border px-4 py-2 w-full rounded">
+        <option *ngFor="let sede of sedes" [value]="sede.id">
+          {{ sede.nombre }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Botón para Actualizar -->
+    <button type="submit" class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
+      Actualizar
+    </button>
+  </form>
+
+
+  <p *ngIf="mensaje" class="mt-4 text-red-500">{{ mensaje }}</p>
+</div>

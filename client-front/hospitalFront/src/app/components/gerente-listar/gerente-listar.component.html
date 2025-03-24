@@ -1,0 +1,23 @@
+<div class="container mx-auto p-6">
+  <h2 class="text-2xl font-bold mb-6 text-gray-800">Lista de Gerentes</h2>
+
+  <table class="table-auto border-collapse border border-gray-300 w-full text-sm text-left text-gray-600">
+    <thead class="bg-gray-100 border-b">
+      <tr>
+        <th class="border border-gray-300 px-4 py-2 text-gray-800 font-medium">ID</th>
+        <th class="border border-gray-300 px-4 py-2 text-gray-800 font-medium">Nombre del Gerente</th>
+        <th class="border border-gray-300 px-4 py-2 text-gray-800 font-medium">Fecha de Registro</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gerente of gerentes" class="hover:bg-gray-50">
+        <td class="border border-gray-300 px-4 py-2">{{ gerente.idGerente }}</td>
+        <td class="border border-gray-300 px-4 py-2">{{ gerente.descGerente }}</td>
+        <td class="border border-gray-300 px-4 py-2">{{ gerente.fechaRegistro | date: 'yyyy-MM-dd' }}</td>
+      </tr>
+      <tr *ngIf="!gerentes || gerentes.length === 0">
+        <td colspan="3" class="text-center text-gray-500 py-4">No hay datos disponibles</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

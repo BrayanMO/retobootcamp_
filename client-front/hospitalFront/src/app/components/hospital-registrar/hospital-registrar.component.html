@@ -1,0 +1,85 @@
+<div class="max-w-lg mx-auto mt-8 p-6 bg-white border border-gray-200 rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold text-center mb-6">Registrar Hospital</h2>
+  <form [formGroup]="hospitalForm" (ngSubmit)="onSubmit()">
+
+    <!-- ID Hospital -->
+    <div class="mb-4">
+      <label for="idHospital" class="block text-gray-700 font-medium mb-2">ID Hospital</label>
+      <input type="number" id="idHospital" formControlName="idHospital"
+        class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500" />
+    </div>
+
+    <!-- ID Distrito -->
+    <div class="mb-4">
+      <label for="idDistrito" class="block text-gray-700 font-medium mb-2">ID Distrito</label>
+      <input type="number" id="idDistrito" formControlName="idDistrito"
+        class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500" />
+    </div>
+
+    <!-- Nombre -->
+    <div class="mb-4">
+      <label for="nombre" class="block text-gray-700 font-medium mb-2">Nombre</label>
+      <input type="text" id="nombre" formControlName="nombre"
+        class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500" />
+      <div *ngIf="hospitalForm.get('nombre')?.invalid && hospitalForm.get('nombre')?.touched"
+        class="text-red-500 text-sm mt-1">
+        El nombre es obligatorio.
+      </div>
+    </div>
+
+    <!-- Antigüedad -->
+    <div class="mb-4">
+      <label for="antiguedad" class="block text-gray-700 font-medium mb-2">Antigüedad</label>
+      <input type="number" id="antiguedad" formControlName="antiguedad"
+        class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500" />
+    </div>
+
+    <!-- Área -->
+    <div class="mb-4">
+      <label for="area" class="block text-gray-700 font-medium mb-2">Área</label>
+      <input type="number" step="0.01" id="area" formControlName="area"
+        class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500" />
+    </div>
+
+    <!-- ID Sede -->
+    <div class="mb-4">
+      <label for="idSede" class="block text-gray-700 font-medium mb-2">ID Sede</label>
+      <input type="number" id="idSede" formControlName="idSede"
+        class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500" />
+    </div>
+
+    <!-- ID Gerente -->
+    <div class="mb-4">
+      <label for="idGerente" class="block text-gray-700 font-medium mb-2">ID Gerente</label>
+      <input type="number" id="idGerente" formControlName="idGerente"
+        class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500" />
+    </div>
+
+    <!-- ID Condición -->
+    <div class="mb-4">
+      <label for="idCondicion" class="block text-gray-700 font-medium mb-2">ID Condición</label>
+      <input type="number" id="idCondicion" formControlName="idCondicion"
+        class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500" />
+    </div>
+
+    <!-- Fecha Registro -->
+    <div class="mb-4">
+      <label for="fechaRegistro" class="block text-gray-700 font-medium mb-2">Fecha Registro</label>
+      <input type="date" id="fechaRegistro" formControlName="fechaRegistro"
+        class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500" />
+    </div>
+
+    <!-- Botón de Registro -->
+    <div class="mt-6">
+      <button type="submit" [disabled]="hospitalForm.invalid"
+        class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition duration-200">
+        Registrar
+      </button>
+    </div>
+  </form>
+
+  <!-- Mensaje de respuesta -->
+  <div *ngIf="message" class="mt-4 text-center text-green-600 font-medium">
+    {{ message }}
+  </div>
+</div>
